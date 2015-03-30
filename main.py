@@ -6,7 +6,6 @@ import urllib2
 import os.path
 
 
-
 def main():
 	explorer = DirExplorer()
 	#put the root directory where the files need to be checked
