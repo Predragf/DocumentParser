@@ -1,7 +1,7 @@
 from classes.FileParser import FileParser
 from classes.DirExplorer import DirExplorer
 from classes.PageParseResult import PageParseResult
-from classes.PageLinksChecked import PageLinksChecked
+from classes.PagesLinksChecker import PagesLinksChecker
 import urllib2
 import os.path
 
@@ -13,12 +13,12 @@ def main():
 	rootDir = os.getcwd()
 	filesForProcess = explorer.getFilesForProcessing(rootDir)
 	for fileForProcess in filesForProcess:
-		print fileForProcess
+
+		print 'Processing file: {0}'.format(fileForProcess)
 		parseRes = FileParser.ParseFile(fileForProcess)
-		pagesLinksChecked = PageLinksChecked(parseRes)
+		pagesLinksChecked = PagesLinksChecker(parseRes)
 		pagesLinksChecked.CheckLinks(_cache)
-		print 'second call'
-		pagesLinksChecked.CheckLinks(_cache)
+		
 		for lnk in pagesLinksChecked.links:
 			print lnk.linkName
 			print lnk.statusCode
