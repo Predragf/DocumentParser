@@ -4,7 +4,7 @@ from classes.PageParseResult import PageParseResult
 from classes.PageLinksChecked import PageLinksChecked
 import urllib2
 import os.path
-import json
+
 
 
 def main():
