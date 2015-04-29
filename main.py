@@ -12,13 +12,13 @@ def main():
 	#put the root directory where the files need to be checked
 	rootDir = os.getcwd()
 	filesForProcess = explorer.getFilesForProcessing(rootDir)
+	#for loop that iterates through all the files for processing
 	for fileForProcess in filesForProcess:
-
 		print 'Processing file: {0}'.format(fileForProcess)
 		parseRes = FileParser.ParseFile(fileForProcess)
 		pagesLinksChecked = PagesLinksChecker(parseRes)
 		pagesLinksChecked.CheckLinks(_cache)
-		
+		#loop that iterates through each link in a given document
 		for lnk in pagesLinksChecked.links:
 			print lnk.linkName
 			print lnk.statusCode
